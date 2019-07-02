@@ -13,10 +13,15 @@ This program is free software: you can redistribute it and/or modify it under th
 TESTED ENVIRONMENT
 ---------------------------------------------------------------------------------------------------------------------------------
   -> 3.10 GHz Intel Xeon E5-2687W v3 processor with 256 GB RAM 
+  
   -> GPU (NVidia Quadro K6000)
+  
   -> Operating system: Windows 10
+  
   -> Matlab version 2017a
+  
   -> CUDA driver version 8
+  
   -> ASTRA Toolbox for MATLAB (version 1.8)
   
 LAMINOGRAPHY SCAN DETAILS 
@@ -32,31 +37,53 @@ REQUIRED SOFTWARE
 RUNNING THIS SOFTWARE
 ---------------------------------------------------------------------------------------------------------------------------------
   -> Make sure the correct software is installed. The ASTRA Toolbox is available for download at: https://github.com/astra-toolbox/astra-toolbox. 
+  
   -> Download the source code into your working directory.
+  
   -> Put the ASTRA toolbox folder in your working directory.
+  
   -> Put your .ang (projection angles file) and .xtekct (scanning geometry file) in your current working directory 
+  
   -> Open MATLAB and in the MATLAB command window run the command "lamino_interface". This will bring up the laminography interface where you can set the reconstruction parameters, create a sinogram and start the laminography reconstruction. 
   
 INTERFACE PARAMETER DEFINITIONS 
 ---------------------------------------------------------------------------------------------------------------------------------
   -> Tilt angle: This defines the inclination of the sample rotation axis relative to the vertical.
+  
   -> Angles: Select the .ang file corresponding to the projection angles used in the relevant scan. The file must be in the current working directory.
+  
   -> Reconstruction volume dimensions: Defines the number of pixels in the reconstruction volume in the x, y and z directions respectively .
+  
   -> Method: Defines the iterative algorithm that will be used to reconstruct the data (can be SIRT aor CGLS).
+  
   -> Iterations: The number of iterations of the chosen algorith that will be performed.
+  
   -> COR: The number of pixels you wish to add to the detector to correct for any centre of rotation issues. Can be positive or negative. Positive values add pixels to the right hand side of the detector, while negative vaules add pixels to the left hand side.
+  
   -> ROI: If performing a region of interest scan, the sinogram can be padded to remove the ring artefact that may otherwise be present. The value inputted specifies the number of pixels to pad the sinogram by. Both sides of the sinogram are padded by the amount specified.
+  
   -> Dimension file: Select the relevent .xtexct file that contains the dimensions of the scan (source_detector distance, source_object dist, pixel size etc...). The file must be in the current working directory.
+  
   -> Mount height: The height of the sample mount used in mm.
+  
   -> COR position correction: Depending on the machine, the centre of rotation of the manipulator stage may or may not be at the bottom of the sample mount. To adjust for this, a correction to the source-to-center distance in mm should be added. A positive distance shortens the source-to-center distance (sample moves closer to the source) by the amount specified, and a negative distance lengthens it.
+  
   -> Generate sinogram: Tick if you want to generate a 3D sinogram from raw data.
+  
     --> Data: If generate sinogram is ticked, select the folder that 	contains the relevent raw projection data.
+    
     --> Shading correction: If generate sinogram is ticked, Select 	the dark and light shading 	correction images.
+    
   -> Load sinogram from file: Tick this box if you wish to load in a previously created sinogram. The sinogram must be saved in the current working directory.
+  
   -> Binning factor: Select the binng factor you wish to apply to the raw data.
+  
   -> Save reconstruction: Tick this box if you wish to save your reconstruction. If ticked, you must also select how frequently you wish the reconstruction to be saved ( every x iterations). The save frequency must be a multiple of the number of interations to allow regular saving intervals.
+  
   -> Mirror images: Sometimes the direction in which the stage rotates differs between machines. If you are getting a nonsensical reconstruction, try ticking (or unticking) this box. This reverses the direction of rotation of the stage.
+  
   -> Use 1/x of the data: If you do not wish to use the full dataset, select this and choose the factor by which you wish to reduce the number of projections by. This is useful when doing quick tests and are not so concerned about the quality of the reconstruction, to check the center of rotation correction, for example, as it drastically reduces the reconstruction time. 
+  
   -> Reconstruct: Press when you have ensured that all parameters are correct and the necessary files have been selected. 
 
 DURING THE SCAN
@@ -92,64 +119,90 @@ Function used to perform the laminography reconstruction. This function can be r
 
 INPUT:
   parameters - A data structure containing the scanning geometry parameters
+  
   The data structure must have the following fields:
+  
          - parameters.Alpha - the tilt angle given by the scanner
+         
          - parameters.Iterations - the number of iterations of the
+         
          - parameters.COR - the centre of rotation correction in pixels
+         
          - parameters.ROI - the region of interest correction in pixels 
+         
          - parameters.BinningFactor - the factor the projection iThis mages have been binned by 
          (if binning has already been done by the scanner during data collection)
+         
          - parameters.Algorithm - the reconstruction algorithm (either
          CGLS or SIRT)
+         
          - parameters.ChopDataFactor - the sampling factor if you wish to
          use a data set of a reduced size for performance reasons or
          during testing
+         
   dimensions - A data structure containing the reconstruction volume
+  
   dimensions. The data structure must have the following fields:
+  
          - dimensions.Nx - number of pixels in the x dimension in the reconstruction
+         
          - dimensions.Ny - number of pixels in the y dimension in the
          reconstruction
+         
          - dimensions.Nz - number of pixels in the z dimension of the
          reconstruction
+         
          - dimensions.MountHeight - the length of the mount used in mm
+         
          - dimensions.CORPositionCorrection -Depending on the machine, 
          the centre of rotation of the manipulator stage may or may not be 
          at the bottom of the sample mount. To adjust for this, a correction
          to the source-to-center distance in mm should be added. A positive
          distance shortens the source-to-center distance (sample moves closer 
          to the source) by the amount specified, and a negative distance lengthens it. 
+         
   ctrl_variables - A data structure containing variables to toggle 
   between different behaviours of the script and to control what is
   output
+  
           - ctrl_variables.SaveReconstruction - True/False if
           reconstruction should be saved during the interations. The end
           result be saved regardless of the value of this field. This
           should be used if you want to save during the iterations to
           monitor how the quality of the reconstruction changes with
           iteration number.
+          
           - ctrl_variables.SaveFrequency - How often you want to save the
           iterations (depends on SaveReconstruction being True). For
           example a value of 5 means saving the reconstruction every 5
           iterations. 
+          
           - ctrl_variables.MirrorImages - Sometimes the direction in which
           the stage rotates differs from machine to machine and you may need to 
           reverse the order of the projection images in order to get a reconstruction
           that makes sense. Set this to True to do this.
+          
           - ctrl_variables.LoadSinogram - True/False to load a pre-made
           sinogram from a file 
+          
           - ctrl_variables.ChopData - True/False if you want to use a
           sampled data set to speed up reconstruction.
+          
   file_paths - A data structure containing file paths to different files
   that are needed in the reconstruction
+  
           - file_paths.DataPath - the file path to the projection data
+          
           - file_paths.AnglesFile - the file path to the projection
           angles file 
           - file_paths.SinogramFile - the file path to the sinogram
+          
           - file_paths.ScanDimensionsFile - the file path to the folder
           containing the dimensions file output from the scanner
 
 OUTPUT:
   V - The reconstructed volume as a 3D Matlab matrix
+  
   proj_geom - The projection geometry used for reconstruction as a data
   structure
   
@@ -168,9 +221,13 @@ Apply a flat field correction and any projection binning and then create a 3D si
 
 INPUTS:
   proj_path - file path to directory where projection data is located
+  
   dark file - file path to the dark file 
+  
   light file - file path to the light file
+  
   bin_data - boolean for binning data True/False
+  
   bin_amount - the factor for binning the projection images by. Will only
   have an affect if the bin_data variable is set to True.
 
@@ -183,6 +240,7 @@ Function used to reduce the number of projection images in a sinogram by samplin
 
 INPUT:
   sinogram - a matrix containing the sinogram you want to sample from
+  
   factor - the sampling factor 
 
 OUTPUT:
@@ -194,6 +252,7 @@ Function used to reduce the number of projection angles by sampling. Use if you 
 
 INPUT:
   angles - An array containing the projection angles (in order)
+  
   factor - The sampling factor
 
 OUTPUT:
