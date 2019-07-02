@@ -153,6 +153,15 @@ OUTPUT:
   proj_geom - The projection geometry used for reconstruction as a data
   structure
   
+  -> SETUP_RECON_LAMINOGRAPHY
+  ---------------------------
+Set up the file paths and add the GPU in preparation for laminography reconstruction.
+
+INPUTS:
+  no inputs
+OUTPUTS:
+   status - the gpu status 
+  
   -> GET_SINOGRAM_3D
   ------------------
 Apply a flat field correction and any projection binning and then create a 3D sinogram from 2D projection data.
@@ -167,6 +176,59 @@ INPUTS:
 
 OUTPUTS:
   sino_dbl - the constructed sinogram
+
+  -> CHOP_DOWN_SINOGRAM
+  ---------------------
+Function used to reduce the number of projection images in a sinogram by sampling. Use if you need to reduce the size of your data set for testing or performance reasons. Use in conjuction with chop_down_angles to reduce the number of projection angles in the corresponding projection angles list. 
+
+INPUT:
+  sinogram - a matrix containing the sinogram you want to sample from
+  factor - the sampling factor 
+
+OUTPUT:
+  sinogram_chopped - the sampled sinogram
+  
+  -> CHOP_DOWN_ANGLES
+  -------------------
+Function used to reduce the number of projection angles by sampling. Use if you need to reduce the size of your data set for testing or performance reasons. Use in conjunction with chop_down_sinogram to reduce the number of projections in the corresponding sinogram.
+
+INPUT:
+  angles - An array containing the projection angles (in order)
+  factor - The sampling factor
+
+OUTPUT:
+  angles_chopped - The sampled angles array
+
+EXAMPLE:
+  If the input angles array is [0, 1, 2, 3, 4, 5] and the sampling factor
+  is 2 then the output array is [1, 3, 5].
+
+  -> PAD_SINOGRAM
+  ---------------
+Add pixels to the sinogram. Used for adding centre of rotation or region of interest corrections 
+
+INPUTS:
+  sinogram - the sinogram to add the correction to
+  cor_padsize - the number of pixels to add to make the correction
+
+OUTPUTS:
+  sinogram_ready - the sinogram with the correction added
+
+  -> SHOW_SLICES
+  --------------
+A function for viewing reconstructions output from the reconstruction algorithm as a 3D MATLAB matrix. The program allows you to view 2D slices through the 3D volume in the x, y and z planes. You can use the buttons to flick through the slices or just type what slice you want to view. You can adjust the grayscale and save the slices as png or tiff files.
+
+INPUTS:
+  rec - reconstruction as a 3D Matlab matrix
+
+OUTPUTS:
+  no outputs
+  
+
+
+
+
+
 
 
 
