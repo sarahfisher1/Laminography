@@ -70,9 +70,9 @@ INTERFACE PARAMETER DEFINITIONS
   
   -> Generate sinogram: Tick if you want to generate a 3D sinogram from raw data.
   
-    --> Data: If generate sinogram is ticked, select the folder that 	contains the relevent raw projection data.
+  -> Data: If generate sinogram is ticked, select the folder that 	contains the relevent raw projection data.
     
-    --> Shading correction: If generate sinogram is ticked, Select 	the dark and light shading 	correction images.
+  -> Shading correction: If generate sinogram is ticked, Select 	the dark and light shading 	correction images.
     
   -> Load sinogram from file: Tick this box if you wish to load in a previously created sinogram. The sinogram must be saved in the current working directory.
   
@@ -140,9 +140,7 @@ INPUT:
          use a data set of a reduced size for performance reasons or
          during testing
          
-  dimensions - A data structure containing the reconstruction volume
-  
-  dimensions. The data structure must have the following fields:
+  dimensions - A data structure containing the reconstruction volume dimensions. The data structure must have the following fields:
   
          - dimensions.Nx - number of pixels in the x dimension in the reconstruction
          
@@ -161,9 +159,7 @@ INPUT:
          distance shortens the source-to-center distance (sample moves closer 
          to the source) by the amount specified, and a negative distance lengthens it. 
          
-  ctrl_variables - A data structure containing variables to toggle 
-  between different behaviours of the script and to control what is
-  output
+  ctrl_variables - A data structure containing variables to toggle between different behaviours of the script and to control what is output
   
           - ctrl_variables.SaveReconstruction - True/False if
           reconstruction should be saved during the interations. The end
@@ -188,8 +184,7 @@ INPUT:
           - ctrl_variables.ChopData - True/False if you want to use a
           sampled data set to speed up reconstruction.
           
-  file_paths - A data structure containing file paths to different files
-  that are needed in the reconstruction
+  file_paths - A data structure containing file paths to different files that are needed in the reconstruction
   
           - file_paths.DataPath - the file path to the projection data
           
