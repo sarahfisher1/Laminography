@@ -4,9 +4,13 @@ MATLAB code for laminography reconstruction using SIRT and CGLS
 This software is used for reconstruction of laminography data from a standard microCT scanner. This software was developed and used in the scanning and reconstruction process of a test object using the laminography method. This work was published in the the journal Measurement Science and Technology titled Laminography in the lab: Imaging planar objects using a conventional x-ray CT scanner (2019) (see https://iopscience.iop.org/article/10.1088/1361-6501/aafcae). 
 The data-set for the original work can be downloaded from:  https://doi.org/10.5281/zenodo.2540509.
 
+Authors: S L Fisher, D J Holmes, J S Jørgensen, P Gajjar, J Behnsen, W R B Lionheart and P J Withers
+
+Contact: sarah.fisher-1@outlook.com
+
 COPYRIGHT NOTICE
 ---------------------------------------------------------------------------------------------------------------------------------
-Copyright (c) 2019 S Fisher and D Holmes
+Copyright (c) 2019 S L Fisher D J Holmes J S Jørgensen P Gajjar J Behnsen W R B Lionheart P J Withers
 
 University of Manchester
 
