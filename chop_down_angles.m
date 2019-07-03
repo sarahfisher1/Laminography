@@ -4,14 +4,14 @@
 % Use if you need to reduce the size of your data set for testing or
 % performance reasons. Use in conjunction with chop_down_sinogram to reduce
 % the number of projections in the corresponding sinogram.
-%
+% 
 % TESTED ENVIRONMENT:
 %   Windows 10, MATLAB version 2017a 
 % 
 % INPUT:
 %   angles - An array containing the projection angles (in order)
 %   factor - The sampling factor
-%
+% 
 % OUTPUT:
 %   angles_chopped - The sampled angles array
 % 
@@ -20,7 +20,7 @@
 %   is 2 then the output array is [1, 3, 5].
 %
 % -------------------------------------------------------------------------
-% Copyright (c) 2019 S Fisher and D Holmes 
+% Copyright (c) 2019 S L Fisher D J Holmes J S Jørgensen P Gajjar J Behnsen W R B Lionheart P J Withers
 % University of Manchester
 %
 % This program is free software: you can redistribute it and/or modify

@@ -4,19 +4,19 @@
 % sampling. Use if you need to reduce the size of your data set for testing
 % or performance reasons. Use in conjuction with chop_down_angles to reduce
 % the number of projection angles in the corresponding projection angles list. 
-%
+% 
 % TESTED ENVIRONMENT:
 %   Windows 10, MATLAB version 2017a
 % 
 % INPUT:
 %   sinogram - a matrix containing the sinogram you want to sample from
 %   factor - the sampling factor 
-%
+% 
 % OUTPUT:
 %   sinogram_chopped - the sampled sinogram
 %
 % -------------------------------------------------------------------------
-% Copyright (c) 2019 S Fisher and D Holmes 
+% Copyright (c) 2019 S L Fisher D J Holmes J S Jørgensen P Gajjar J Behnsen W R B Lionheart P J Withers
 % University of Manchester
 %
 % This program is free software: you can redistribute it and/or modify

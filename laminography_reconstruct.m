@@ -5,17 +5,17 @@
 % structures given below with the correct fields. Alternatively the
 % function can be run through the laminography interface (run
 % lamino_interface). This method is more user friendly. 
-%
+% 
 % TESTED ENVIRONMENT:
 %   Windows 10, MATLAB version 2017a
 % 
 % HARDWARE REQUIREMENTS:
 %   This code runs on a single GPU
-%
+% 
 % SOFTWARE REQUIREMENTS:
 %   - ASTRA version 1.8 (available from Github)
 %   - CUDA driver version 8 
-%
+% 
 % INPUT:
 %   parameters - A data structure containing the scanning geometry parameters
 %   The data structure must have the following fields:
@@ -80,7 +80,7 @@
 %   structure
 %
 % -------------------------------------------------------------------------
-% Copyright (c) 2019 S Fisher and D Holmes 
+% Copyright (c) 2019 S L Fisher D J Holmes J S Jørgensen P Gajjar J Behnsen W R B Lionheart P J Withers
 % University of Manchester
 %
 % This program is free software: you can redistribute it and/or modify

@@ -9,16 +9,16 @@
 % 
 % TESTED ENVIRONMENT:
 %   Windows 10, MATLAB version 2017a
-%
+% 
 % INPUTS:
 %   rec - reconstruction as a 3D Matlab matrix
-%
+% 
 % OUTPUTS:
 %   no outputs
-% 
-% -------------------------------------------------------------------------
-% Copyright (c) 2019 S Fisher and D Holmes 
+%
+% Copyright (c) 2019 S L Fisher D J Holmes J S Jørgensen P Gajjar J Behnsen W R B Lionheart P J Withers
 % University of Manchester
+% -------------------------------------------------------------------------
 %
 % This program is free software: you can redistribute it and/or modify
 % it under the terms of the GNU General Public License as published by
@@ -32,7 +32,6 @@
 % You should have received a copy of the GNU General Public License
 % along with this program. If not, see <http://www.gnu.org/licenses/>.
 %
-% Contact: sarah.fisher-1@outlook.com
 % -------------------------------------------------------------------------
 
 function show_slices(rec)

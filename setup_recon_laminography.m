@@ -12,7 +12,7 @@
 %   status - the gpu status
 % 
 % -------------------------------------------------------------------------
-% Copyright (c) 2019 S Fisher and D Holmes 
+% Copyright (c) 2019 S L Fisher D J Holmes J S Jørgensen P Gajjar J Behnsen W R B Lionheart P J Withers
 % University of Manchester
 %
 % This program is free software: you can redistribute it and/or modify

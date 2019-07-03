@@ -2,19 +2,19 @@
 % -------------------------------------------------------------------------
 % Add pixels to the sinogram. Used for adding centre of rotation or region
 % of interest corrections 
-%
+% 
 % TESTED ENVIRONMENT:
 %   Windows 10, MATLAB version 2017a
 % 
 % INPUTS:
 %   sinogram - the sinogram to add the correction to
 %   cor_padsize - the number of pixels to add to make the correction
-%
+% 
 % OUTPUTS:
 %   sinogram_ready - the sinogram with the correction added
-%
+% 
 % -------------------------------------------------------------------------
-% Copyright (c) 2019 S Fisher and D Holmes 
+% Copyright (c) 2019 S L Fisher D J Holmes J S Jørgensen P Gajjar J Behnsen W R B Lionheart P J Withers
 % University of Manchester
 %
 % This program is free software: you can redistribute it and/or modify
